@@ -1,4 +1,4 @@
-# hello-word
+# star-fusion
 
 ## Project setup
 ```
