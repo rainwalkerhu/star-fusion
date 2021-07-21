@@ -1,5 +1,6 @@
 <template>
   <div class="ele-table__scope">
+    <query @submit="fetchData" />
     <div style="text-align: left; margin-bottom: 22px">
       <el-button type="primary" @click="handleCreate">新增</el-button>
       <el-button
@@ -45,17 +46,26 @@
         </template>
       </el-table-column>
     </el-table>
+    <pagination
+      :total="tableData.length"
+      @size-change="fetchData"
+      @current-change="fetchData"
+    />
     <Dialog ref="new" />
   </div>
 </template>
 
 <script>
 import Dialog from "./dialog";
+import Query from "./query";
+import Pagination from "./pagination";
 
 export default {
   name: "Table",
   components: {
     Dialog,
+    Query,
+    Pagination,
   },
   data() {
     return {
